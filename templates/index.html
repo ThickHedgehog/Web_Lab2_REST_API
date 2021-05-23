@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Laba2</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+<h1 class="title_lab">Лаба №2</h1>
+<div class="input" id="showText">
+    <p class="author" id="author"></p>
+    <p class="year" id="year"></p>
+    <p class="quote" id="quote"></p>
+</div>
+<div class="input" id="changeDiv">
+    <label>
+        <input type="text" placeholder="Автор" class="changeAuthor">
+    </label>
+    <label>
+        <input type="text" placeholder="Годы жизни" class="changeYear">
+    </label>
+    <label>
+        <input type="text" placeholder="Цитата" class="changeQuote">
+    </label>
+</div>
+<div class="input">
+    <label>
+        <input type="text" placeholder="Номер цитаты" class="inputID">
+    </label>
+    <input type="submit" value="Показать" class="submit" id="Get">
+    <input type="submit" value="Добавить" class="Add" id="Put">
+    <input type="submit" value="Редактировать" class="change" id="Change">
+    <input type="submit" value="Удалить" class="delete" id="Delete">
+    <input type="submit" value="Подтвердить" class="commit" id="Commit">
+</div>
+<script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
