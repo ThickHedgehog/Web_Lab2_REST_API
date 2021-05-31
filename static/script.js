@@ -12,11 +12,14 @@ let changeYear = document.querySelector('.changeYear');
 let changeQuote = document.querySelector('.changeQuote');
 const url = 'http://127.0.0.1:5000/';
 
+// Запрос GET
 button.addEventListener('click', function () {
     buttonCommit.style.display = "none";
+    // Передаем id
     fetch(url + 'quotes/' + idSelect.value, {
         method: 'GET'
     })
+        // Парсим полученный JSON
         .then(response => response.json())
         .then(data => {
             let nameValue = data['author'];
@@ -29,6 +32,7 @@ button.addEventListener('click', function () {
         });
 })
 
+// Делаем запрос GET для получения данных, которые будем изменять
 buttonChange.addEventListener('click', function () {
     buttonCommit.style.display = "inline-block";
     buttonAdd.style.display = "none";
@@ -48,6 +52,7 @@ buttonChange.addEventListener('click', function () {
         });
 })
 
+// Запрос PUT
 buttonCommit.addEventListener('click', function () {
     let idValue = idSelect.value;
     let nameValue = changeAuthor.value;
@@ -56,6 +61,7 @@ buttonCommit.addEventListener('click', function () {
     fetch(url + 'quotes/' + idSelect.value, {
         method: "PUT",
         headers: {'Content-Type': 'quotes/json'},
+        // Формируем JSON, который будем передавать в теле запроса
         body: JSON.stringify({
             id: idValue, author: nameValue, years: yearValue, quote: quoteValue
         })
@@ -71,6 +77,7 @@ buttonCommit.addEventListener('click', function () {
     buttonDelete.style.display = "inline-block";
 })
 
+// Запрос POST
 buttonAdd.addEventListener('click', function () {
     let idValue = idSelect.value;
     let nameValue = changeAuthor.value;
@@ -79,6 +86,7 @@ buttonAdd.addEventListener('click', function () {
     fetch(url + 'quotes', {
         method: "POST",
         headers: {'Content-Type': 'quotes/json'},
+        // Формируем JSON, который будем передавать в теле запроса
         body: JSON.stringify({
             id: idValue, author: nameValue, years: yearValue, quote: quoteValue
         })
@@ -91,6 +99,7 @@ buttonAdd.addEventListener('click', function () {
         })
 })
 
+// Запрос DELETE
 buttonDelete.addEventListener('click', function () {
     buttonCommit.style.display = "none";
     fetch(url + 'quotes/' + idSelect.value, {
