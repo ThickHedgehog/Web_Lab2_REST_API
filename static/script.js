@@ -62,7 +62,6 @@ buttonCommit.addEventListener('click', function () {
     })
         .then(function () {
             console.log(JSON.stringify({id: idValue, author: nameValue, years: yearValue, quote: quoteValue}));
-            idSelect.value = "";
             changeAuthor.value = "";
             changeQuote.value = "";
             changeYear.value = "";
@@ -86,6 +85,9 @@ buttonAdd.addEventListener('click', function () {
     })
         .then(function () {
             console.log(JSON.stringify({id: idValue, author: nameValue, years: yearValue, quote: quoteValue}));
+            changeAuthor.value = "";
+            changeQuote.value = "";
+            changeYear.value = "";
         })
 })
 
